@@ -1,0 +1,17 @@
+LinkOutTo
+=========
+
+LinkOutTo provides a single method 'link_out_to' that wraps 'link_to' and
+provides a target of 'out'.  It was born because I got tired of writing the
+following over and over again.
+
+link_to 'click', 'here', :target => 'out'
+
+
+Example
+=======
+
+link_out_to 'click, 'here'
+
+
+Copyright (c) 2008 Philip Hallstrom, released under the MIT license

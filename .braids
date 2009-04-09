@@ -6,3 +6,10 @@ vendor/plugins/clear_helper:
   revision: 308943116f2e8b4d8704ede37f1882c8a258e00a
   branch: master
   remote: braid/vendor/plugins/clear-helper
+vendor/plugins/link_out_to: 
+  squashed: true
+  url: git://github.com/phallstrom/link_out_to.git
+  type: git
+  revision: d0aba45a2195a18120d1fdd5d42a76384ab4a12b
+  branch: master
+  remote: braid/vendor/plugins/link-out-to
