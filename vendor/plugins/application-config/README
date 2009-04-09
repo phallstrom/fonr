@@ -1,0 +1,43 @@
+==== application_config functionality
+
+'application_config' eases project configuring by introducing yaml config file in RAILS_ROOT/config folder and provides handful methods accessing config values based on current rails environment. So, you can have separate sets of configuration properties for each rails environment you use. 
+
+==== SVN Repository
+
+http://application-config.googlecode.com/svn/
+
+==== Installation
+
+script/plugin install http://application-config.googlecode.com/svn/tags/application-config
+
+==== Default configuration file
+
+During installation plugin will create default config in RAILS_ROOT/config/application_config.yml, it looks like the following (please note it's okay to put ERB tags in there)
+
+  development: &defaults
+    items_per_page: 25
+    secure_with_basic_auth: false
+    base_url: development.com
+    erb_enabled_property: <%= Rails.root + "/something" %>
+  test:
+    <<: *defaults
+    base_url: test.com
+  production:
+    <<: *defaults
+    base_url: production.com
+
+====
+==== Usage
+
+You then can access those values using 'property' method:
+  class FooController < ApplicationController
+    def index
+      @base_url = property(:base_url)
+    end
+  end
+
+This will set @base_url with value 'development.com' if you run that in development environment.
+
+==== Copyright & License
+
+Copyright (c) 2008 Pavlo Lysov, released under the MIT license

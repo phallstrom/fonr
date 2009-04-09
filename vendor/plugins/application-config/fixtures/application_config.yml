@@ -1,0 +1,11 @@
+development: &defaults
+  items_per_page: 25
+  base_url: development.com
+  secure_with_basic_auth: false
+  erb_enabled_property: <%= 1 + 1 - 1 %>
+test:
+  <<: *defaults
+  base_url: test.com
+production:
+  <<: *defaults
+  base_url: production.com

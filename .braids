@@ -27,3 +27,9 @@ vendor/plugins/google_ajax_libraries_api:
   revision: e885dbd5af3274c0146fddd3357c122825d0eb15
   branch: master
   remote: braid/vendor/plugins/google-ajax-libraries-api
+vendor/plugins/application-config: 
+  squashed: true
+  url: http://application-config.googlecode.com/svn/tags/application-config
+  type: svn
+  revision: 21
+  remote: braid/vendor/plugins/application-config
