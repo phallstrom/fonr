@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Facebooker on Rails</title>
+
+    <% if RAILS_ENV == 'production' %>
+      <%= google_prototype :version => '1.6.0.3' %>
+      <%= google_scriptaculous :version => '1.8.2' %>
+      <%= javascript_include_tag 'application' %>
+    <% else %>
+      <%= javascript_include_tag :defaults %>
+    <% end %>
+
+    <%= stylesheet_link_tag 'application'  %>
+
+    <style type='text/css'>
+      <%= yield :inline_styles %>
+    </style>
+
+    <%= yield :head %>
+  </head>
+  <body>
+
+    <%= fb_connect_javascript_tag %>
+    <% init_fb_connect "XFBML","Api" do %>
+      <%= yield :fb_connect %>
+    <% end %>
+
+    <div id="page">
+      <div id="sidebar">
+        <%= render :partial => 'shared/sidebar' %>
+      </div>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+      
+      <div id="footer">&nbsp;</div>
+    </div>
+  </body>
+</html>
