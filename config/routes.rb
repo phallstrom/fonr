@@ -3,6 +3,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => "home"
 
+  map.helper '/helpers/:id', :controller => 'helper', :action => 'helper'
+
   map.with_options :controller => 'connect' do |r|
     r.logout '/connect/logout', :action => 'logout'
     r.login '/connect/login', :action => 'login'
