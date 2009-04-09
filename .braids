@@ -1,0 +1,8 @@
+--- 
+vendor/plugins/clear_helper: 
+  squashed: true
+  url: git://github.com/phallstrom/clear_helper.git
+  type: git
+  revision: 308943116f2e8b4d8704ede37f1882c8a258e00a
+  branch: master
+  remote: braid/vendor/plugins/clear-helper

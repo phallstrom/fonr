@@ -1,0 +1,37 @@
+ClearHelper
+===========
+
+ClearHelper is a simple one method helper to make creating a "cleared" div
+simple and consistent across platforms.  You can specify whether you want to
+clear 'both', 'left', or 'right' and set the height of the div in any unit you
+want (defaults to pixels).
+
+Installation
+============
+
+./script/plugin install git://github.com/phallstrom/clear_helper.git
+
+
+Example
+=======
+
+<%= clear %>
+<div style="clear:both; height: 0; max-height: 0; line-height: 0;">&nbsp;</div>
+
+<%= clear(:left) %>
+<div style="clear:left; height: 0px; max-height: 0px; line-height: 0px;">&nbsp;</div>
+
+Failure to specify the unit for the height will default to 'px'.
+
+<%= clear(:right, 10) %>
+<div style="clear:left; height: 10px; max-height: 10px; line-height: 10px;">&nbsp;</div>
+
+If the first value is not one of 'both', 'left', or 'right' it will be assumed to be the height
+and will default to 'both'.
+
+<%= clear('2.5em') %>
+<div style="clear:both; height: 2.5em; max-height: 2.5em; line-height: 2.5em;">&nbsp;</div>
+
+
+
+Copyright (c) 2008 [Philip Hallstrom], released under the MIT license
