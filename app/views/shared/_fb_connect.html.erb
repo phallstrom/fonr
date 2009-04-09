@@ -1,0 +1,11 @@
+<% if @current_user %>
+  <div class='connected'>
+    <%= fb_profile_pic @current_user, :size => :square, :facebook_logo => true, :class => 'profile_pic' %>
+    Welcome, <%= fb_name @current_user, :use_you => false, :linked => false %>.
+    <br />
+    <%= link_to_remote "Logout", {:update => 'fb_connect', :before => 'FB.Connect.logout()', :complete => 'FB.XFBML.Host.parseDomTree()', :url => logout_path}, :class => 'small' %>
+  </div>
+  <%= clear %>
+<% else %>
+  <%= fb_login_button remote_function(:update => 'fb_connect', :url => login_path, :complete => 'FB.XFBML.Host.parseDomTree()'), :size => :large, :background => :white, :length => :long %> 
+<% end %>

@@ -13,17 +13,15 @@ h1 {
   color: #000;
 }
 
-a  {color: #03c}
-a:hover {
-  background-color: #03c;
-  color: white;
-  text-decoration: none;
+a {
+  color: #03c;
+  text-decoration: underline;
 }
 
 
 #page {
   background-color: #f0f0f0;
-  width: 750px;
+  width: 800px;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
@@ -40,7 +38,7 @@ a:hover {
 
 #sidebar {
   float: right;
-  width: 175px;
+  width: 225px;
 }
 
 #footer {
@@ -168,4 +166,23 @@ a:hover {
 }
 #sidebar ul.links li {
   margin-bottom: 5px;
+}
+
+/*******************************************************************************************/
+
+small, .small {
+  font-size: 85%;
+}
+
+#fb_connect {
+  margin-top: 1em;
+}
+
+#fb_connect .connected img.profile_pic {
+  float: left;
+  margin-right: 10px;
+}
+
+#fb_connect .connected {
+  font-size: 90%;
 }

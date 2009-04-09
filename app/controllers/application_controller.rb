@@ -7,4 +7,34 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  helper_method :facebook_session
+  
+  before_filter :create_facebook_session
+  before_filter :set_current_user
+
+  def set_current_user
+    if facebook_session && facebook_session.secured?
+      if session[:user_id] 
+        @current_user ||= User.find(session[:user_id]) rescue nil
+        @current_user = nil if @current_user && @current_user.facebook_id != facebook_session.user.id
+      end
+
+      if @current_user.nil?
+        @current_user = User.find_by_facebook_id(facebook_session.user.id) || User.create!(:facebook_id => facebook_session.user.id, :facebook_session_key => facebook_session.session_key)
+        session[:user_id] = @current_user.id if @current_user
+      end
+
+      if @current_user && facebook_session.session_key != @current_user.facebook_session_key
+        @current_user.update_attribute(:facebook_session_key, facebook_session.session_key)
+      end
+
+    else
+      session[:user_id] = nil
+      @current_user = nil
+    end
+
+  end
+  private :set_current_user
+
 end
