@@ -20,3 +20,10 @@ vendor/plugins/link_out_to:
   revision: d0aba45a2195a18120d1fdd5d42a76384ab4a12b
   branch: master
   remote: braid/vendor/plugins/link-out-to
+vendor/plugins/google_ajax_libraries_api: 
+  squashed: true
+  url: git://github.com/rpheath/google_ajax_libraries_api.git
+  type: git
+  revision: e885dbd5af3274c0146fddd3357c122825d0eb15
+  branch: master
+  remote: braid/vendor/plugins/google-ajax-libraries-api

@@ -1,0 +1,45 @@
+h1. Google Ajax Libraries API (for Rails)
+
+The AJAX Libraries API is a content distribution network and loading architecture for the most popular open source JavaScript libraries. (See "http://code.google.com/apis/ajaxlibs/":http://code.google.com/apis/ajaxlibs/ for more details)
+
+This is nothing more than a Rails plugin that provides a convenient interface for these libraries.
+
+h2. Usage
+
+There are a couple of ways to get access to your library of choice. At this point, there are five supported libraries: jquery, prototype, scriptaculous, mootools, and dojo. This plugin supports them all. To include a library, you can use the convenience helpers in the head of your layout:
+
+<pre><code>
+<%= google_mootools -%>
+<%= google_jquery :version => '1.2.3' -%>
+<%= google_prototype :uncompressed => true -%>
+<%= google_dojo :version => '1.1.1', :uncompressed => true -%>
+</pre></code>
+
+You get the idea. By default, the version will be the highest version supported. For instance, jQuery has two supported versions right now: 1.2.3 and 1.2.6. If you want to use 1.2.6, just use @<%= google_jquery -%>@.
+
+If you need/want to load a few libraries at once, use the @google_javascripts()@ helper, like so:
+
+<pre><code>
+<%= google_javascripts :prototype, :scriptaculous, :jquery -%>
+<%= google_javascripts :prototype, :scriptaculous, :jquery, :uncompressed => true -%>
+</code></pre>
+
+Pretty straight-forward. I should note, though, if you're specifying a few libraries at once, the @:version@ option becomes irrelevant, as I'd have no clue which library you were specifying a version for. And if you pass the @:uncompressed@ option, it will apply to all libraries that support an uncompressed version.
+
+I'm sure the code could be improved upon, as I wrote this farely quickly because I started using it in a few of my projects. Feel free to suggest changes and/or "fork and improve".
+
+h2. Got Internet?
+
+In the rare event that your internet connection has gone missing (it happens, believe it or not), you can specify to load the file from your local javascripts folder by passing the @:local@ option.
+
+<pre><code><%= google_jquery :local => true %></code></pre>
+
+This would just look for 'jquery.js' in your public/javascripts folder. In the event that you don't have a local copy, well, I guess you won't be doing any javascript :-)
+
+h2. Keeping up-to-date
+
+Google is usually on top of things. I'm sure they'll be supporting more and more libraries as they come out (or become more popular). Fortunately, it's easy to add a new library to this plugin. Just modify the code located in lib/google_ajax_libraries_api/constants.rb, mimicking the existing library format. (Note: adding a new library in constants.rb will dynamically create a @google_newlib@ helper, so there's nothing else that needs to be done!)
+
+h2. License
+
+Copyright (c) 2008 Ryan Heath, released under the MIT license
