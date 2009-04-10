@@ -6,6 +6,9 @@ development: &defaults
     :fb_profile_pic: 
       :description: Turns into an img tag for the specified user's or Facebook Page's profile picture.
       :wiki_url: http://wiki.developers.facebook.com/index.php/Fb:profile-pic
+    :fb_login_button: 
+      :description: Renders a Facebook Connect login button image on your site.
+      :wiki_url: http://wiki.developers.facebook.com/index.php/Fb:login-button
 
 test:
   <<: *defaults
