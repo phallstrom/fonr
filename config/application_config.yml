@@ -13,6 +13,11 @@ development: &defaults
       :description: Renders a Facebook Connect login button image on your site.
       :wiki_url: http://wiki.developers.facebook.com/index.php/Fb:login-button
       :not_in_fb: true
+    :fb_logout_link: 
+      :description: Log user out from this session and Facebook, then redirect to the specified url.
+      :wiki_url: http://wiki.developers.facebook.com/index.php/JS_API_M_FB.Connect.LogoutAndRedirect
+      :not_in_fb: true
+
 
 test:
   <<: *defaults

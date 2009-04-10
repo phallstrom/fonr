@@ -1,0 +1,29 @@
+<% form_tag do %>
+
+  <b><%= @helper_name %>(</b>
+    <blockquote>
+      <%= text_field_tag :link_text, (params[:link_text] || 'Logout'), :title => "Clickable text for logout link" %>,
+      <br />
+      <%= text_field_tag :redirect_url, (params[:redirect_url] || request.url), :size => 70, :title => "URL to redirect to upon logout" %>
+      <br />
+    </blockquote>
+  <b>)</b>
+
+  <%= submit_tag 'Go' %>
+
+<% end %>
+
+
+<% if request.post? %>
+  <% invocation = helper_invocation("#{@helper_name}(\"#{params[:link_text]}\", \"#{h params[:redirect_url]}\"", {}) %>
+
+  <h3>Invocation</h3>
+  <div class='boxed'>
+    <%= h invocation %>
+  </div>
+
+  <h3>Result</h3>
+  <div class='boxed'>
+    <%= render :inline => invocation %>
+  </div>
+<% end %>

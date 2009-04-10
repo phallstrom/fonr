@@ -18,12 +18,8 @@ module HelperHelper
 
   def helper_invocation(prefix, params, suffix = ")")
     options = extract_helper_options(params)
-    '<%= ' + 
-    prefix + 
-    (', ' unless options.blank?).to_s + 
-    options.map {|e| ":#{e.first} => #{e.last}" }.join(', ') + 
-    suffix + 
-    ' %>'
+    invocation = '<%= ' + prefix + (', ' unless options.blank?).to_s + options.map {|e| ":#{e.first} => #{e.last}" }.join(', ') + suffix + ' %>'
+    invocation.gsub(/\#{.*?}/, '{SORRY}')
   end
 
 end
