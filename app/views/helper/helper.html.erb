@@ -1,9 +1,9 @@
 <div id="header">
-  <h1>Helper: <%= @helper %></h1>
-  <%= yield :helper_description %>
+  <h1>Helper: <%= @helper_name %></h1>
+  <%= @helper[:description] %>
+  (<%= link_out_to 'FB Wiki', @helper[:wiki_url] %>)
 </div>
 
 <div id='helper'>
-  <%= render :partial => @helper %>
+  <%= render :partial => @helper_name %>
 </div>
-

@@ -3,8 +3,9 @@
   <li>
     <h3>Helper Methods</h3>
     <ul class="links">
-      <li><%= link_to 'fb_name', helper_path('fb_name') %></li>
-      <li><%= link_to 'fb_profile_pic', '' %></li>
+      <% property(:helpers).each do |helper| %>
+        <li><%= link_to helper.first, helper_path(helper.first) %></li>
+      <% end %>
     </ul>
   </li>
   

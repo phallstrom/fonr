@@ -21,7 +21,7 @@ a {
 
 #page {
   background-color: #f0f0f0;
-  width: 800px;
+  width: 900px;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
@@ -33,7 +33,7 @@ a {
   border: 3px solid #aaa;
   border-top: none;
   padding: 25px;
-  width: 500px;
+  width: 600px;
 }
 
 #sidebar {
@@ -170,6 +170,13 @@ a {
 
 /*******************************************************************************************/
 
+hr {
+  border :none;
+  border-top: 1px solid #ccc;
+  padding: 0;
+  margin: 10px 0;
+}
+
 small, .small {
   font-size: 85%;
 }
@@ -185,4 +192,34 @@ small, .small {
 
 #fb_connect .connected {
   font-size: 90%;
+}
+
+/*******************************************************************************************/
+
+#helper form {
+  font-family: "Monaco", "Courier New";
+}
+
+#helper form label {
+  width: 33%;
+  display: inline-block;
+  text-align: right;
+}
+#helper form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+#helper form label:after {
+  content: " => ";
+}
+
+#helper h3 {
+  margin: 1em 0 0 0;
+}
+
+#helper .boxed {
+  border: 1px solid #ccc;
+  padding: 10px;
 }

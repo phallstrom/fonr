@@ -1,3 +1,78 @@
-<% content_for :helper_description do %>
-  Renders the name of the user specified, optionally linked to his or her profile.
+<% form_tag do %>
+
+  <b>fb_name(</b>
+
+  <%= text_field_tag :uid, (params[:uid] || '@current_user') %>
+  <small>(facebook id. default is @current_user)</small>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_first_name_only, ':first_name_only' %>
+    <%= select_tag :helper_first_name_only, options_for_select(['', 'true', 'false'], params[:helper_first_name_only]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_last_name_only, ':last_name_only' %>
+    <%= select_tag :helper_last_name_only, options_for_select(['', 'true', 'false'], params[:helper_last_name_only]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_linked, ':linked' %>
+    <%= select_tag :helper_linked, options_for_select(['', 'true', 'false'], params[:helper_linked]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_use_you, ':use_you' %>
+    <%= select_tag :helper_use_you, options_for_select(['', 'true', 'false'], params[:helper_use_you]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_possessive, ':possessive' %>
+    <%= select_tag :helper_possessive, options_for_select(['', 'true', 'false'], params[:helper_possessive]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_reflexive, ':reflexive' %>
+    <%= select_tag :helper_reflexive, options_for_select(['', 'true', 'false'], params[:helper_reflexive]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_show_network, ':show_network' %>
+    <%= select_tag :helper_show_network, options_for_select(['', 'true', 'false'], params[:helper_show_network]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_if_cant_see, ':if_cant_see' %>
+    <%= text_field_tag :helper_if_cant_see, params[:helper_if_cant_see] %>
+    <%= check_box_tag :helper_if_cant_see_send_blank_string, 1, params[:helper_if_cant_see_send_blank_string] %><small>Send blank string</small>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_capitalize, ':capitalize' %>
+    <%= select_tag :helper_capitalize, options_for_select(['', 'true', 'false'], params[:helper_capitalize]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_subject_id, ':subject_id' %>
+    <%= text_field_tag :helper_subject_id, params[:helper_subject_id] %>
+  <% end  %>
+
+  <b>)</b>
+
+  <%= submit_tag 'Go' %>
+
+<% end %>
+
+
+<% if request.post? %>
+  <% invocation = helper_invocation("fb_name(#{Integer(params[:uid]) rescue '@current_user'}", params) %>
+
+  <h3>Invocation</h3>
+  <div class='boxed'>
+    <%= h invocation %>
+  </div>
+
+  <h3>Result</h3>
+  <div class='boxed'>
+    <%= render :inline => invocation %>
+  </div>
 <% end %>
