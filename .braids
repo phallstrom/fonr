@@ -1,4 +1,11 @@
 --- 
+vendor/plugins/facebooker: 
+  squashed: true
+  url: git://github.com/phallstrom/facebooker.git
+  type: git
+  revision: f4b17cf987fdfdcd626f7f460be42e21c0ed3fcb
+  branch: master
+  remote: braid/vendor/plugins/facebooker
 vendor/plugins/clear_helper: 
   squashed: true
   type: git
