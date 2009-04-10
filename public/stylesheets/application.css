@@ -66,41 +66,6 @@ a {
 }
 
 
-#about h3 {
-  margin: 0;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-#about-content {
-  background-color: #ffd;
-  border: 1px solid #fc0;
-  margin-left: -11px;
-}
-#about-content table {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-size: 11px;
-  border-collapse: collapse;
-}
-#about-content td {
-  padding: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-}
-#about-content td.name  {color: #555}
-#about-content td.value {color: #000}
-
-#about-content.failure {
-  background-color: #fcc;
-  border: 1px solid #f00;
-}
-#about-content.failure p {
-  margin: 0;
-  padding: 10px;
-}
-
-
 #getting-started, #helper {
   border-top: 1px solid #ccc;
   margin-top: 25px;
