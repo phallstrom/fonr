@@ -2,6 +2,12 @@
   <h1>Helper: <%= @helper_name %></h1>
   <%= @helper[:description] %>
   (<%= link_out_to 'FB Wiki', @helper[:wiki_url] %>)
+
+  <% if @helper[:not_in_fb] %>
+    <div class='not_in_fb'>
+      <b>Note:</b> This helper does not directly correlate to a Facebook FBML tag, but is a convenience method provided by Facebooker.
+    </div>
+  <% end %>
 <% end %>
 
 <div id='helper'>

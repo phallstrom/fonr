@@ -9,6 +9,10 @@ development: &defaults
     :fb_login_button: 
       :description: Renders a Facebook Connect login button image on your site.
       :wiki_url: http://wiki.developers.facebook.com/index.php/Fb:login-button
+    :fb_login_and_redirect: 
+      :description: Renders a Facebook Connect login button image on your site.
+      :wiki_url: http://wiki.developers.facebook.com/index.php/Fb:login-button
+      :not_in_fb: true
 
 test:
   <<: *defaults

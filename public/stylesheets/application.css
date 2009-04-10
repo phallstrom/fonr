@@ -56,7 +56,6 @@ a {
   background-image: url("/images/rails.png");
   background-repeat: no-repeat;
   background-position: top left;
-  height: 64px;
 }
 #header h1, #header h2 {margin: 0}
 #header h2 {
@@ -195,6 +194,14 @@ small, .small {
 }
 
 /*******************************************************************************************/
+
+#header div.not_in_fb {
+  margin-top: 1em;
+  font-size: 85%;
+  background-color: #b22e30;
+  color: #fff;
+  padding: 2px;
+}
 
 #helper form {
   font-family: "Monaco", "Courier New";

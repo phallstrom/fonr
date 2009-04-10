@@ -1,0 +1,50 @@
+<% form_tag do %>
+
+  <b><%= @helper_name %>(request.url,</b>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_condition, ':condition' %>
+    <%= select_tag :helper_condition, options_for_select(['', '"javascript_returning_true"; true', '"javascript_returning_false"; false'], params[:helper_condition]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_size, ':size' %>
+    <%= select_tag :helper_size, options_for_select(['', 'small', 'medium', 'large'], params[:helper_size]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_autologoutlink, ':autologoutlink' %>
+    <%= select_tag :helper_autologoutlink, options_for_select(['', 'true', 'false'], params[:helper_autologoutlink]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_background, ':background' %>
+    <%= select_tag :helper_background, options_for_select(['', 'white', 'dark', 'light'], params[:helper_background]) %>
+  <% end  %>
+
+  <% field_set_tag do %>
+    <%= label_tag :helper_length, ':length' %>
+    <%= select_tag :helper_length, options_for_select(['', 'short', 'long'], params[:helper_length]) %>
+  <% end  %>
+
+
+  <b>)</b>
+
+  <%= submit_tag 'Go' %>
+
+<% end %>
+
+
+<% if request.post? %>
+  <% invocation = helper_invocation("#{@helper_name}(request.url", params) %>
+
+  <h3>Invocation</h3>
+  <div class='boxed'>
+    <%= h invocation %>
+  </div>
+
+  <h3>Result</h3>
+  <div class='boxed'>
+    <%= render :inline => invocation %>
+  </div>
+<% end %>
