@@ -37,14 +37,5 @@
 
 <% if request.post? %>
   <% invocation = helper_invocation("#{@helper_name}(request.url", params) %>
-
-  <h3>Invocation</h3>
-  <div class='boxed'>
-    <%= h invocation %>
-  </div>
-
-  <h3>Result</h3>
-  <div class='boxed'>
-    <%= render :inline => invocation %>
-  </div>
+  <%= render :partial => 'invocation_and_result' %>
 <% end %>
