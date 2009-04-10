@@ -1,7 +1,7 @@
-<div id="header">
+<% content_for :header do %>
   <h1>Facebooker on Rails</h1>
   <h2>A showcase of Facebooker's functionality.</h2>
-</div>
+<% end  %>
 
 <div id="about">
   <h3><%= link_to_function "About your application's environment", "about()" %></h3>
@@ -21,6 +21,12 @@
     <li>
       <h2>Login to this site.</h2>
       <p>Connect to this site by clicking the 'Connect with Facebook' button at the top right of this page.</p>
+    </li>
+
+    <li>
+    <h2>Keep in mind that this site is running <%= link_out_to "phallstrom's fork", 'http://github.com/phallstrom/facebooker/tree/master' %> of Facebooker.</h2>
+    <p>The primary repository is <%= link_out_to "mmangino's", 'http://github.com/mmangino/facebooker/tree/master' %>. 
+       Hopefully the two will be in sync, but it may not always be.</p>
     </li>
 
     <li>

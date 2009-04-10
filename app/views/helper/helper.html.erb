@@ -1,8 +1,8 @@
-<div id="header">
+<% content_for :header do %>
   <h1>Helper: <%= @helper_name %></h1>
   <%= @helper[:description] %>
   (<%= link_out_to 'FB Wiki', @helper[:wiki_url] %>)
-</div>
+<% end %>
 
 <div id='helper'>
   <%= render :partial => @helper_name %>

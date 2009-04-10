@@ -1,6 +1,15 @@
 <ul id="sidebar-items">
 
   <li>
+    <h3></h3>
+    <ul class="links">
+      <li><%= link_to 'Home', root_path %>
+      <li><%= mail_to "philip@pjkh.com", "Feedback", :encode => "javascript" %></li>
+    </ul>
+  </li>
+  </li>
+
+  <li>
     <h3>Helper Methods</h3>
     <ul class="links">
       <% property(:helpers).each do |helper| %>
@@ -13,7 +22,8 @@
     <h3>Facebooker Links</h3>
     <ul class="links">
       <li><%= link_out_to 'Documentation', 'http://facebooker.rubyforge.org/' %></li>
-      <li><%= link_out_to 'GitHub', 'http://github.com/mmangino/facebooker/tree/master' %></li>
+      <li><%= link_out_to 'GitHub - mmangino', 'http://github.com/mmangino/facebooker/tree/master' %></li>
+      <li><%= link_out_to 'GitHub - phallstrom', 'http://github.com/phallstrom/facebooker/tree/master' %></li>
       <li><%= link_out_to 'Mailing List', 'http://groups.google.com/group/facebooker/' %></li>
     </ul>
   </li>
