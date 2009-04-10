@@ -12,8 +12,8 @@
   <li>
     <h3>Helper Methods</h3>
     <ul class="links">
-      <% property(:helpers).each do |helper| %>
-        <li><%= link_to helper.first, helper_path(helper.first) %></li>
+      <% property(:helpers).keys.sort_by{|e| e.to_s}.each do |helper| %>
+        <li><%= link_to helper, helper_path(helper) %></li>
       <% end %>
     </ul>
   </li>
