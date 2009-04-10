@@ -34,10 +34,10 @@ test:
     local_port: 3000
 
 production:
-  api_key: 
-  secret_key: 
-  canvas_page_name: 
-  callback_url: 
+  api_key: 9b57a8d455025a130d205fb27b55c3fe
+  secret_key: 4b7371dfacf6b1caead80fac3413d213
+  canvas_page_name: FonR
+  callback_url: http://facebooker.pjkh.com
   set_asset_host_to_callback_url: true   
   tunnel:
     public_host_username: 
