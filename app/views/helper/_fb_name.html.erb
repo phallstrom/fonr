@@ -1,6 +1,6 @@
 <% form_tag do %>
 
-  <b>fb_name(</b>
+  <b><%= @helper_name %>(</b>
 
   <%= text_field_tag :uid, (params[:uid] || '@current_user') %>
   <small>(facebook id. default is @current_user)</small>
@@ -64,7 +64,7 @@
 
 
 <% if request.post? %>
-  <% invocation = helper_invocation("fb_name(#{Integer(params[:uid]) rescue '@current_user'}", params) %>
+  <% invocation = helper_invocation("#{@helper_name}(#{Integer(params[:uid]) rescue '@current_user'}", params) %>
 
   <h3>Invocation</h3>
   <div class='boxed'>
