@@ -21,13 +21,9 @@ class ConnectController < ApplicationController
     render :nothing => true
   end
 
+  # Processing ConnectController#invite (for 127.0.0.1 at 2009-04-13 15:45:21) [POST]
+  # Parameters: {"ids"=>["1685645931"], "mfs_typeahead_req_form_49e3c070ee9e31811502384"=>"Start Typing a Friend's Name"}
   def invite
-    if params[:ids].blank?
-      flash[:invitation] = :canceled
-    else
-      flash[:invitation] = :sent
-    end
-    redirect_to toy_url(params[:voted_on_toy_id])
   end
 
 end

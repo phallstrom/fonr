@@ -200,8 +200,11 @@ h3 {
 .boxed {
   border: 1px solid #ccc;
   padding: 10px;
-  width: 630px;
   overflow: auto;
+}
+
+#copy ol li {
+  margin-bottom: 1em;
 }
 
 /*******************************************************************************************/

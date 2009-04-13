@@ -1,0 +1,58 @@
+<% content_for :header do %>
+  <h1>Inviting Friends with Facebook Connect</h1>
+  Instructions on how to invite friends using the Facebook Javascript API's popup methods.
+  There are probably a lot of ways to do this, I've found this works for me.
+<% end %>
+
+<% @invocation = "
+<.%= link_to_function 'Invite your Friends!', 
+   \"fb_connect_invite_friends({
+       type: 'Facebooker on Rails', 
+       invitation_copy:'Please accept this invitation to Facebooker on Rails.', 
+       request_action_text:'Invite your friends to join Facebooker on Rails'
+    })\" 
+%.>
+".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+
+<div id='copy'>
+
+  <ol>
+    <li>Create a link to the javascript function <code>fb_connect_invite_friends()</code>.
+        You can see the implementation of this method in <%= link_to 'application.js', '/javascripts/application.js' %>.
+    </li>
+
+    <li>A typical call might look like this:
+    <div class='boxed'>
+      <pre><%= h @invocation %></pre>
+    </div>
+    </li>
+
+    <li>That would result in a link like this:
+    <div class='boxed'>
+      <%= render :inline => @invocation %>
+    </div>
+    </li>
+
+    <li>
+      Depending on what you pass into the method will determine what text is displayed, what urls the user goes to on cancel/submission,
+      how big the dialog is, etc.
+    </li>
+
+    <li>
+    Go ahead and try clicking the link above.  If you cancel it (by hitting
+    'Cancel', not by hitting the 'x') you'll GET this page.  If you send a
+    friend request you will POST to this page.  If you send then
+    <code>params[:ids]</code> is set to the list of uid's you invited.
+    </li>
+
+  </ol>
+
+  <% if request.post? %>
+    <h3>Result</h3>
+    <div class='boxed'>
+      You sent an invitation to the following uids:
+      <%= params[:ids] %>
+    </div>
+  <% end %>
+
+</div>
