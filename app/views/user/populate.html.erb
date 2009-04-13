@@ -8,21 +8,34 @@
 
 <div id='copy'>
 
+<b>Note:</b> The result table most likely will require scrolling left/right to
+see full details.  The :proxied_email in particular is very long.
+
 <% @invocation = "<table class='data'>
   <thead>
     <tr>
-      <th>UID</th>
-      <th>Name</th>
-      <th>Birthday</th>
+      <th>Key</th>
+      <th>Value</th>
     </tr>
   </thead>
   <tbody>
-    <.% @current_user.facebook_session.user.populate(:name, :birthday) %.>
+    <.% fields = [:name, :birthday, :about_me, :activities, :affiliations, 
+        :books, :current_location, :education_history, 
+        :email_hashes, :first_name, :has_added_app, :hometown_location, 
+        :hs_info, :interests, :is_app_user, :last_name, :locale, 
+        :meeting_for, :meeting_sex, :movies, :music, :notes_count, 
+        :pic, :pic_with_logo, :pic_big, :pic_big_with_logo, :pic_small, 
+        :pic_small_with_logo, :pic_square, :pic_square_with_logo, 
+        :political, :profile_update_time, :profile_url, :proxied_email, 
+        :quotes, :relationship_status, :religion, :sex, :significant_other_id, 
+        :status, :timezone, :tv, :wall_count, :work_history] %.>
+    <.% @current_user.facebook_session.user.populate(*fields) %.>
+    <.% fields.each do |f| %.>
     <tr>
-      <td><.%= @current_user.facebook_session.user.uid %.></td>
-      <td><.%= @current_user.facebook_session.user.name %.></td>
-      <td><.%= @current_user.facebook_session.user.birthday %.></td>
+      <td><.%= f %.></td>
+      <td><.%= h @current_user.facebook_session.user.send(f).inspect %.></td>
     </tr>
+    <.% end %.>
   </tbody>
 </table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
 

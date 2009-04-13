@@ -1,0 +1,34 @@
+<% content_for :header do %>
+  <h1>User.friends_with_this_app</h1>
+  Returns the user IDs of the current user's Facebook friends who have
+  authorized the specific calling application or who have already connected
+  their Facebook accounts via Facebook Connect.
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/Friends.getAppUsers' %>)
+
+<% end %>
+
+<div id='copy'>
+
+<b>Note:</b> The below invocation limits the results to the first 25 friends.
+You can get them all by removing the "[0,25]", I just didn't want to overload
+the page.
+
+<% @invocation = "<table class='data'>
+  <thead>
+    <tr>
+      <th>UID</th>
+    </tr>
+  </thead>
+  <tbody>
+  <.% @current_user.facebook_session.user.friends_with_this_app[0,25].each do |friend| %.>
+    <tr>
+      <td><.%= friend.uid %.></td>
+    </tr>
+  <.% end %.>
+  </tbody>
+</table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+
+<%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
+
+
+</div>
