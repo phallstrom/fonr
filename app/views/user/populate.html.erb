@@ -1,0 +1,30 @@
+<% content_for :header do %>
+  <h1>User.populate(*fields)</h1>
+  Retrieve profile data for logged in user.
+  Optional: list of fields to retrieve as symbols.
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/Users.getInfo' %>)
+
+<% end %>
+
+<div id='copy'>
+
+<% @invocation = "<table class='data'>
+  <thead>
+    <tr>
+      <th>UID</th>
+      <th>Name</th>
+      <th>Birthday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <.% @current_user.facebook_session.user.populate(:name, :birthday) %.>
+    <tr>
+      <td><.%= @current_user.facebook_session.user.uid %.></td>
+      <td><.%= @current_user.facebook_session.user.name %.></td>
+      <td><.%= @current_user.facebook_session.user.birthday %.></td>
+    </tr>
+  </tbody>
+</table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+
+<%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
+

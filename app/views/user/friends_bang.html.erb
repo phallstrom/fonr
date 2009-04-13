@@ -1,0 +1,35 @@
+<% content_for :header do %>
+  <h1>User.friends!(*fields)</h1>
+  Retrieve friends with user info populated. Subsequent calls will be retrieved from memory.
+  Optional: list of fields to retrieve as symbols.
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/Users.getInfo' %>)
+
+<% end %>
+
+<div id='copy'>
+
+<b>Note:</b> The below invocation limits the results to the first 25 friends.
+You can get them all by removing the "[0,25]", I just didn't want to overload
+the page.
+
+<% @invocation = "<table class='data'>
+  <thead>
+    <tr>
+      <th>UID</th>
+      <th>Name</th>
+      <th>Birthday</th>
+    </tr>
+  </thead>
+  <tbody>
+  <.% @current_user.facebook_session.user.friends!(:name, :birthday)[0,25].each do |friend| %.>
+    <tr>
+      <td><.%= friend.uid %.></td>
+      <td><.%= friend.name %.></td>
+      <td><.%= friend.birthday %.></td>
+    </tr>
+  <.% end %.>
+  </tbody>
+</table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+
+<%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
+

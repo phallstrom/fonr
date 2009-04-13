@@ -1,0 +1,16 @@
+<% boxed ||= true %>
+<% pre ||= false %>
+
+<h3>Invocation</h3>
+<div class='boxed'>
+  <% if pre %>
+   <pre><%= h @invocation.strip %></pre>
+  <% else %>
+    <%= h @invocation %>
+  <% end %>
+</div>
+
+<h3>Result</h3>
+<div class='<%= boxed == true ? 'boxed' : '' %>'>
+  <%= render :inline => @invocation %>
+</div>

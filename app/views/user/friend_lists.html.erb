@@ -1,0 +1,28 @@
+<% content_for :header do %>
+  <h1>User.friend_lists</h1>
+  Returns the names and identifiers of any friend lists that the user has created. 
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/Friends.getLists' %>)
+
+<% end %>
+
+<div id='copy'>
+
+<% @invocation = "<table class='data'>
+  <thead>
+    <tr>
+      <th>FLID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+  <.% @current_user.facebook_session.user.friend_lists.each do |list| %.>
+    <tr>
+      <td><.%= list.flid %.></td>
+      <td><.%= list.name %.></td>
+    </tr>
+  <.% end %.>
+  </tbody>
+</table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+
+<%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
+

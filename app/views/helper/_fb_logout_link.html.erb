@@ -16,5 +16,5 @@
 
 <% if request.post? %>
   <% @invocation = helper_invocation("#{@helper_name}(\"#{params[:link_text]}\", \"#{h params[:redirect_url]}\"", {}) %>
-  <%= render :partial => 'invocation_and_result' %>
+  <%= render :partial => 'shared/invocation_and_result' %>
 <% end %>

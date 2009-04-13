@@ -21,7 +21,7 @@ a {
 
 #page {
   background-color: #f0f0f0;
-  width: 900px;
+  width: 950px;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
@@ -33,7 +33,7 @@ a {
   border: 3px solid #aaa;
   border-top: none;
   padding: 25px;
-  width: 600px;
+  width: 650px;
 }
 
 #sidebar {
@@ -66,7 +66,7 @@ a {
 }
 
 
-#getting-started, #helper {
+#getting-started, #helper, #copy {
   border-top: 1px solid #ccc;
   margin-top: 25px;
   padding-top: 15px;
@@ -193,11 +193,66 @@ small, .small {
   content: " => ";
 }
 
-#helper h3 {
+h3 {
   margin: 1em 0 0 0;
 }
 
-#helper .boxed {
+.boxed {
   border: 1px solid #ccc;
   padding: 10px;
+  width: 630px;
+  overflow: auto;
+}
+
+/*******************************************************************************************/
+
+table.data {
+  clear: both;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+table.data thead tr th {
+  background-color: #ccc;
+  border: 1px solid #999;
+  white-space: nowrap;
+  padding: 3px;
+  font-weight: bold;
+}
+
+table.data tr td {
+  padding: 3px;
+  border: 1px solid #ccc;
+}
+
+table.data tbody tr.even {
+  background: #eee;
+}
+
+table.data tbody tr.odd {
+  background: #fff;
+}
+
+table.data tbody tr:hover {
+  background: #ddd;
+}
+
+table.data tr th.left,
+table.data tr td.left {
+  text-align: left;
+}
+
+table.data tr th.center,
+table.data tr td.center {
+  text-align: center;
+}
+
+table.data tr th.right,
+table.data tr td.right {
+  text-align: right;
+}
+
+table.data tbody tr td.bold {
+  font-weight: bold;
 }
