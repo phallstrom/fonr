@@ -45,6 +45,6 @@
 
 
 <% if request.post? %>
-  <% invocation = helper_invocation("#{@helper_name}(\"javascript_called_onlogin()\"", params) %>
+  <% @invocation = helper_invocation("#{@helper_name}(\"javascript_called_onlogin()\"", params) %>
   <%= render :partial => 'invocation_and_result' %>
 <% end %>
