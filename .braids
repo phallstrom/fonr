@@ -3,33 +3,33 @@ vendor/plugins/facebooker:
   squashed: true
   url: git://github.com/phallstrom/facebooker.git
   type: git
-  revision: f4b17cf987fdfdcd626f7f460be42e21c0ed3fcb
+  revision: 3254d033d154ec9a658fb434aef2b61a530d6348
   branch: master
   remote: braid/vendor/plugins/facebooker
 vendor/plugins/clear_helper: 
   squashed: true
-  type: git
   url: git://github.com/phallstrom/clear_helper.git
+  type: git
   revision: 308943116f2e8b4d8704ede37f1882c8a258e00a
   branch: master
   remote: braid/vendor/plugins/clear-helper
 vendor/plugins/link_out_to: 
   squashed: true
-  type: git
   url: git://github.com/phallstrom/link_out_to.git
+  type: git
   revision: d0aba45a2195a18120d1fdd5d42a76384ab4a12b
   branch: master
   remote: braid/vendor/plugins/link-out-to
 vendor/plugins/google_ajax_libraries_api: 
   squashed: true
-  type: git
   url: git://github.com/rpheath/google_ajax_libraries_api.git
+  type: git
   revision: e885dbd5af3274c0146fddd3357c122825d0eb15
   branch: master
   remote: braid/vendor/plugins/google-ajax-libraries-api
 vendor/plugins/application-config: 
   squashed: true
-  type: svn
   url: http://application-config.googlecode.com/svn/tags/application-config
+  type: svn
   revision: 21
   remote: braid/vendor/plugins/application-config
