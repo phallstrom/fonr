@@ -67,8 +67,6 @@ function fb_connect_invite_friends(options) {
       fbml += '</fb:request-form>'
       fbml += '</fb:fbml>'
 
-      window.console.log(fbml)
-
       dialog.setFBMLContent(fbml)
       dialog.setContentWidth(options.width)  
       dialog.setContentHeight(options.height)
