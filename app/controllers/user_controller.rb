@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  def friends_bang
-  end
+
+  before_filter :require_current_user
 
 end

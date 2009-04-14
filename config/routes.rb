@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.user_method '/user/:action', :controller => 'user'
 
   map.with_options :controller => 'connect' do |r|
+    r.connection_required '/connect', :action => 'connection_required'
     r.logout '/connect/logout', :action => 'logout'
     r.login '/connect/login', :action => 'login'
     r.uninstall '/connect/uninstall', :action => 'uninstall'

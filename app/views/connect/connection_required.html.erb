@@ -1,0 +1,12 @@
+<% content_for :header do %>
+  <h1>Connection Required</h1>
+  <h2>The page you tried to access requires that you first be connected to this site.</h2>
+<% end  %>
+
+<div id="copy">
+
+  <ol>
+    <li>Please connect using the 'Connect' button at the top right of this page.</li>
+    <li>Then, <%= link_to 'click here', @goto_url %> to visit the page you tried to access.</li>
+  </ol>
+</div>

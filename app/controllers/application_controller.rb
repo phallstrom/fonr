@@ -32,9 +32,17 @@ class ApplicationController < ActionController::Base
     else
       session[:user_id] = nil
       @current_user = nil
+      clear_facebook_session_information
     end
 
   end
   private :set_current_user
+
+  def require_current_user
+    return true if @current_user
+    flash[:goto_url] = request.url
+    redirect_to connection_required_url
+  end
+  private :require_current_user
 
 end
