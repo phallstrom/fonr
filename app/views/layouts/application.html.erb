@@ -50,7 +50,14 @@
         <% end %>
       </div>
       
-      <div id="footer">&nbsp;</div>
+      <div id="footer">
+        Facebooker on Rails is the work of 
+        <%= mail_to 'philip@pjkh.com', 'Philip Hallstrom', :encode => 'javascript' %>
+        and
+        <%= link_out_to 'PJKH, LLC', 'http://www.pjkh.com' %>.
+        <br />
+        Many thanks to <%= link_out_to 'Mike Mangino of Elevated Rails', 'http://elevatedrails.com/' %> for the facebooker gem itself.
+      </div>
     </div>
 
     <% if RAILS_ENV == 'production' %>
