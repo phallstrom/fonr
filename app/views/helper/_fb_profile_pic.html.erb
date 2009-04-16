@@ -2,8 +2,8 @@
 
   <b><%= @helper_name %>(</b>
 
-  <%= text_field_tag :uid, (params[:uid] || '@current_user') %>
-  <small>(facebook id. default is @current_user)</small>
+  <%= text_field_tag :uid, (params[:uid] || '1025124802') %>
+  <small>(facebook id or @current_user)</small>
 
   <% field_set_tag do %>
     <%= label_tag :helper_size, ':size' %>
