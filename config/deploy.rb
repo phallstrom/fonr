@@ -5,7 +5,7 @@ set :deploy_to, "/home/philip/apps/facebooker.pjkh.com"
 set :runner, "philip"
 set :use_sudo, false
 
-set :keep_releases, 2
+set :keep_releases, 1
 
 set :deploy_via, :remote_cache
 
