@@ -3,8 +3,6 @@
   Returns true if the current user is friends with user_or_id.
 <% end %>
 
-<div id='copy'>
-
 <% @invocation = "Are you friends with Philip Hallstrom? 
 <.%= @current_user.facebook_session.user.friends_with?(1025124802) ? 'Yes!' : 'No.' %.>
 
@@ -17,5 +15,3 @@ Are you friends with <.%= friend.name %.>?
 ".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
 
 <%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
-
-</div>

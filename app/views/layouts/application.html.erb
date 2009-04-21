@@ -41,11 +41,15 @@
         <div id="header">
           <%= yield :header %>
         </div>
-        <%= yield %>
+        <div id='copy'>
+          <%= yield %>
+        </div>
         <% unless request.url == root_url %>
-          <h3>Comments</h3>
-          <div class='boxed'>
-            <fb:comments numposts="10" title="Facebooker on Rails" simple="true"></fb:comments>
+          <div id='comments'>
+            <h3>Comments</h3>
+            <div class='boxed'>
+              <fb:comments numposts="10" title="Facebooker on Rails" simple="true"></fb:comments>
+            </div>
           </div>
         <% end %>
       </div>

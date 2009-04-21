@@ -5,8 +5,6 @@
 
 <% end %>
 
-<div id='copy'>
-
 <% @invocation = "<table class='data'>
   <thead>
     <tr>
@@ -25,5 +23,3 @@
 </table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
 
 <%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
-
-</div>

@@ -7,8 +7,6 @@
 
 <% end %>
 
-<div id='copy'>
-
 <b>Note:</b> The below invocation limits the results to the first 25 friends.
 You can get them all by removing the "[0,25]", I just didn't want to overload
 the page.
@@ -29,6 +27,3 @@ the page.
 </table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
 
 <%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
-
-
-</div>

@@ -3,10 +3,9 @@
   <h2>The page you tried to access requires that you first be connected to this site.</h2>
 <% end  %>
 
-<div id="copy">
-
-  <ol>
-    <li>Please connect using the 'Connect' button at the top right of this page.</li>
-    <li>Then, <%= link_to 'click here', @goto_url %> to visit the page you tried to access.</li>
-  </ol>
+<div class="step-by-step">
+<ol>
+  <li><h2>Please connect using the 'Connect' button at the top right of this page.</h2></li>
+  <li><h2>Then, <%= link_to 'click here', @goto_url %> to visit the page you tried to access.</h2></li>
+</ol>
 </div>

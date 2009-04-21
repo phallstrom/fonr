@@ -6,8 +6,6 @@
 
 <% end %>
 
-<div id='copy'>
-
 <b>Note:</b> The result table most likely will require scrolling left/right to
 see full details.  The :proxied_email in particular is very long.
 
@@ -40,5 +38,3 @@ see full details.  The :proxied_email in particular is very long.
 </table>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
 
 <%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :boxed => false} %>
-
-</div>

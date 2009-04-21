@@ -1,4 +1,4 @@
-<% boxed ||= true %>
+<% boxed = boxed.nil? ? true : boxed %>
 <% pre ||= false %>
 
 <h3>Invocation</h3>
@@ -11,6 +11,6 @@
 </div>
 
 <h3>Result</h3>
-<div class='<%= boxed == true ? 'boxed' : '' %>'>
+<div class='<%= boxed == true ? 'boxed' : 'hiddenbox' %>'>
   <%= render :inline => @invocation %>
 </div>

@@ -14,8 +14,6 @@
 %.>
 ".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
 
-<div id='copy'>
-
   <ol>
     <li>Create a link to the javascript function <code>fb_connect_invite_friends()</code>.
         You can see the implementation of this function in <%= link_to 'application.js', '/javascripts/application.js' %>.
@@ -55,5 +53,3 @@
       <%= params[:ids] %>
     </div>
   <% end %>
-
-</div>
