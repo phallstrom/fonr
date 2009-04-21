@@ -1,0 +1,84 @@
+<% content_for :header do %>
+  <h1>Publishing User Actions</h1>
+  Instructions on how to publish to a users wall/feed.
+<% end %>
+
+<ol>
+  <li>Generate a <code>facebook_publisher</code>. 
+  <div class='boxed'>
+    <pre>$ ./script/generate facebook_publisher sample
+      exists  app/models
+      create  app/models/sample_publisher.rb
+      exists  db/migrate
+      create  db/migrate/20090421171137_create_facebook_templates.rb</pre>
+  </div>
+  </li>
+
+  <li>Migrate the database.  You'll only need to do this once regardless of how many facebook_publishers you create.
+  <div class='boxed'>
+    <pre>$ rake db:migrate
+(in /Users/philip/Work/PJKH/facebooker_on_rails/web)
+==  CreateFacebookTemplates: migrating ========================================
+-- create_table(:facebook_templates, {:force=>true})
+   -> 0.0016s
+-- add_index(:facebook_templates, :template_name, {:unique=>true})
+   -> 0.0806s
+==  CreateFacebookTemplates: migrated (0.0825s) ===============================</pre>
+  </div>
+  </li>
+
+  <li>Create the appropriate methods in app/models/sample_publisher.rb.
+  <div class='boxed'>
+    <pre><%= h File.read(File.join(RAILS_ROOT, 'app', 'models', 'sample_publisher.rb')) %></pre>
+  </div>
+  </li>
+
+  <li>Register the template.  Be sure to do this both for your development and production environments.
+      Be sure to do this anytime you change the template.
+  <div class='boxed'>
+    <pre>>> SamplePublisher.register_sample
+facebook.feed.registerTemplateBundle (0.729419946670532) action_links = [{"text": "Check it out!", "href": "http://apps.facebook.com/localhost/"}], one_line_story_templates = ["{*actor*} spent some of {*hisher} time on {*weekday*} exploring Facebooker on Rails."]
+  Facebooker::Rails::Publisher::FacebookTemplate Load (0.2ms)   SELECT * FROM "facebook_templates" WHERE ("facebook_templates"."template_name" = 'SamplePublisher::sample') LIMIT 1
+  Facebooker::Rails::Publisher::FacebookTemplate Create (0.5ms)   INSERT INTO "facebook_templates" ("bundle_id", "template_name", "content_hash") VALUES(90095065780, 'SamplePublisher::sample', '6b266ca12fbba2b5466906c42155ac39')
+=> #<Facebooker::Rails::Publisher::FacebookTemplate id: 1, template_name: "SamplePublisher::sample", content_hash: "6b266ca12fbba2b5466906c42155ac39", bundle_id: 90095065780></pre>
+  </div>
+  </li>
+
+  <li>Have the user do something that triggers the action.  
+      See <%= link_out_to "Facebook's Feed Policy", 'http://wiki.developers.facebook.com/index.php/Platform_Policy#5._Feed' %> for acceptable triggers.
+  </li>
+
+  <li>
+  For this demonstration we simply POST to this page.  The controller action looks like this:
+  <div class='boxed'>
+    <pre>def user_action
+  if request.post?
+    @user_action_to_publish = SamplePublisher.create_sample(@current_user)
+    end
+  end</pre>
+  </div>
+  </li>
+
+  <li>
+    Then in our applications layout just after the opening body tag we have this. The second to last line is the important one.
+  <div class='boxed'>
+    <pre>&lt;%= fb_connect_javascript_tag %&gt;
+    &lt;% init_fb_connect "XFBML","Api" do %&gt;
+      &lt;%= yield :fb_connect %&gt;
+      &lt;%= fb_user_action(@user_action_to_publish) if @user_action_to_publish %&gt;
+    &lt;% end %&gt;</pre>
+  </div>
+  </li>
+
+  <li>Click the button below to trigger the action. If you're not using a test account I would recommend clicking 'skip' when the dialog appears.
+      Otherwise it's safe to publish it and you will see it appear in your profile.
+      If this app was much more popular I believe you'd see it appear on your wall
+      directly.
+      <%= button_to 'Click Here' %>
+  </li>
+
+</ol>
+
+
+
+

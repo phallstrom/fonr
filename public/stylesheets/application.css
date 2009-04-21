@@ -213,6 +213,10 @@ h3 {
   overflow: auto;
 }
 
+.boxed pre {
+  margin: 0;
+}
+
 .hiddenbox {
   overflow: auto;
 }

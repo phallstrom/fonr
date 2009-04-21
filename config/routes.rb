@@ -6,12 +6,17 @@ ActionController::Routing::Routes.draw do |map|
   map.helper '/helpers/:id', :controller => 'helper', :action => 'helper'
   map.user_method '/user/:action', :controller => 'user'
 
+  map.with_options :controller => 'tutorials' do |r|
+  end
+
+
   map.with_options :controller => 'connect' do |r|
     r.connection_required '/connect', :action => 'connection_required'
     r.logout '/connect/logout', :action => 'logout'
     r.login '/connect/login', :action => 'login'
     r.uninstall '/connect/uninstall', :action => 'uninstall'
-    r.invite '/connect/invite', :action => 'invite'
+    r.publish_user_actions '/connect/publish-user-actions', :action => 'publish_user_actions'
+    r.invite_friends '/connect/invite-friends', :action => 'invite_friends'
   end
 
   # Install the default routes as the lowest priority.

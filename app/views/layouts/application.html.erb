@@ -26,6 +26,7 @@
     <%= fb_connect_javascript_tag %>
     <% init_fb_connect "XFBML","Api" do %>
       <%= yield :fb_connect %>
+      <%= fb_user_action(@user_action_to_publish) if @user_action_to_publish %>
     <% end %>
 
     <div id="page">
