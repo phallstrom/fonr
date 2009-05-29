@@ -1,0 +1,48 @@
+<% @app_settings = "{ifUserConnected: user_connected, ifUserNotConnected: user_not_connected}" %>
+
+<% content_for :ifuser_js do %>
+  function user_connected(uid) {
+    $('output').insert("ifUserConnected. Time is " + (new Date()) + ". UID is " + uid + ".<br />")
+  }
+
+  function user_not_connected(uid) {
+    $('output').insert("ifUserNotConnected. Time is " + (new Date()) + ". UID is " + uid + ".<br />")
+  }
+<% end %>
+
+<% content_for :head do %>
+  <% javascript_tag do %>
+    <%= yield :ifuser_js %>
+  <% end %>
+<% end %>
+
+<% content_for :header do %>
+  <h1>init_fb_connect, :app_settings, ifUserConnect/ifUserNotConnected Demo</h1>
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/JS_API_M_FB.Facebook.Init_2' %>)
+  <div class='phallstrom_only'>
+    This feature is only available in phallstrom's branch of facebooker. - Fri May 29 11:21:10 PDT 2009
+  </div>
+<% end %>
+
+
+<ol>
+  <li>If you arrived here from Google you may want to <%= link_to 'read the documentation', fb_init_options_path(:app_settings) %> first.
+  </li>
+
+  <li>To make this work we need to invoke init_fb_connect with the following options. This will trigger the two javascript functions to be called.
+      <pre class='boxed'>init_fb_connect("XFBML","Api", :app_settings => <%= @app_settings %>)</pre>
+  </li>
+
+  <li>Then we need to define those two javascript functions.
+      <pre class='boxed'><%= h yield :ifuser_js %></pre>
+  </li>
+
+  <li>Then we need to login/logout at the top right of the page and watch the 'Callback Output' box below.  
+      For this site logging in/out is done via an AJAX request so the page itself doesn't reload -- only certain elements change.
+      Please note that two ifUserConnected call backs are occuring. Best I can determine the second is due to the comment widget at the bottom fo this page.
+  </li>
+</ul>
+
+<h3>Callback Output</h3>
+<div id='output' class='boxed'>
+</div>

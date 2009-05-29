@@ -1,8 +1,7 @@
 <% @app_settings = "{reloadIfSessionStateChanged: true}" %>
 
 <% content_for :header do %>
-  <h1>init_fb_connect(..., :app_settings => "{reloadIfSessionStateChanged: true}")</h1>
-  A demo for testing out reloadIfSessionStateChanged
+  <h1>init_fb_connect, :app_settings, reloadIfSessionStateChanged Demo</h1>
   (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/JS_API_M_FB.Facebook.Init_2' %>)
   <div class='phallstrom_only'>
     This feature is only available in phallstrom's branch of facebooker. - Fri May 29 11:21:10 PDT 2009
@@ -11,6 +10,9 @@
 
 
 <ol>
+  <li>If you arrived here from Google you may want to <%= link_to 'read the documentation', fb_init_options_path(:app_settings) %> first.
+  </li>
+
   <li>This demo is fairly straight foward.  Logging in and logging out will simply
       reload this page.  Watch your browsers status indicators to see that this is
       really happening.

@@ -12,7 +12,7 @@ If reloadIfSessionStateChanged is set to true (default is false) Facebook will
 monitor changes in session state and reload current page if session state
 changes. This option is convenient for application that needs to reload page
 whenever session state change in order to generate different content from
-server side. 
+server side.  <%= link_to 'Click here for a demo', fb_init_options_path(:app_settings_demo_reload) %>.
 <br />
 <br />
 Examples:
@@ -25,7 +25,7 @@ These parameters can be either a function that takes a string argument for uid
 or string to a url. If a function is passed, then the function would be
 invoked. If a string is passed, then the browser will be redirected to the url
 specified in the string. Note these key and reloadIfSessionStateChanged cannot
-be specified at the same time.
+be specified at the same time.  <%= link_to 'Click here for a demo', fb_init_options_path(:app_settings_demo_ifuser) %>.
 <br />
 <br />
 
