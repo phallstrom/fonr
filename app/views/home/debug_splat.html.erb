@@ -1,0 +1,44 @@
+<% content_for :header do %>
+  <h1>Debug Splat</h1>
+  Splat out a bunch of debugging information just to make it easy to see. Cookies, Sessions, etc.
+<% end %>
+
+<h3>Rails Session</h3>
+<div class='hiddenbox'>
+  <table class='data'>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% session.sort{|a,b| a.first.to_s <=> b.first.to_s}.each do |kv| %>
+        <tr>
+          <td><%=h kv.first %></td>
+          <td><%=h kv.last.inspect %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<h3>Cookies</h3>
+<div class='hiddenbox'>
+  <table class='data'>
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cookies.sort{|a,b| a.first.to_s <=> b.first.to_s}.each do |kv| %>
+        <tr>
+          <td><%=h kv.first %></td>
+          <td><%=h kv.last.inspect %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
