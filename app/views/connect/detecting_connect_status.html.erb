@@ -1,0 +1,39 @@
+<% content_for :header do %>
+  <h1>Detecting Facebook Connect Status</h1>
+  Tips, tricks, and notes for detecing the connected status of a Facebook Connect User.
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/Detecting_Connect_Status' %>)
+<% end %>
+
+<h3>FB.Init Application Settings</h3>
+The FB initialization method takes some optional settings that can call javascript functions or make URL requests or reload the page depending on the connected status.
+This isn't dynamic, but only happens on page load.  <%= link_to 'Read more', fb_init_options_path(:app_settings) %>.
+
+<h3>Cookies</h3>
+It's interesting to look at the <%= link_to 'Debug Splat', debug_splat_path %>
+to see what cookies are (or are not) set for the various connect states.
+Here's what I've learned while watching that pager. Replace "12345" below with your API_KEY"
+<ul class='notes'>
+  <li>When connected the following cookies are set (where "12345" is the API_KEY): 12345, 12345_expires, 12345_session_key, 12345_ss, 12345_user</li>
+  <li>When connected the cookie 'fbsetting_12345' is set and contains a JSON value with some interesting keys.  Most interesting is 'connectState'.
+    <ul>
+      <li>When connected 'connectState' is set to 1.</li>
+      <li>If connected, but also logged out of Facebook (in another tab say) after a second or two (and a page reload) 'connectState' is set to 2.
+      <li>It might be reasonable to periodically check the value of this client side and if it changes act on it.
+    </ul>
+  </li>
+</ul>
+
+<h3>Javascript</h3>
+Facebook provides a 'FB.Connect.get_status()' method which returns an object,
+whose 'result' attribute indicates the connected status. A status of 1 means
+the user is connected. A status of 2 means disconnected. See how the value
+changes depending on whether you are logged in or out (top right of page).
+
+<% javascript_tag do %>
+  function fb_connect_see_status() {
+    $('output').insert("At " + (new Date()) + " the status is " + FB.Connect.get_status().result + ".<br/ >")
+  }
+<% end %>
+<%= link_to_function 'Click here', 'fb_connect_see_status()' %> to see the status in the box below.
+<div id='output' class='boxed'>
+</div>

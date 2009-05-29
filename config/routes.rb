@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
     r.uninstall '/connect/uninstall', :action => 'uninstall'
     r.publish_user_actions '/connect/publish-user-actions', :action => 'publish_user_actions'
     r.invite_friends '/connect/invite-friends', :action => 'invite_friends'
+    r.detecting_connect_status '/connect/detecting-connect-status', :action => 'detecting_connect_status'
   end
 
 

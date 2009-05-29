@@ -147,6 +147,11 @@ a {
   margin-left: 1em;
 }
 
+#sidebar ul.links a.new {
+  padding-right: 20px;
+  background: transparent url(/images/new.png) no-repeat center right;
+}
+
 /*******************************************************************************************/
 
 hr {
@@ -224,6 +229,10 @@ h3 {
 
 .hiddenbox {
   overflow: auto;
+}
+
+ul.notes li {
+  margin-top: 0.75em;
 }
 
 #copy ol {

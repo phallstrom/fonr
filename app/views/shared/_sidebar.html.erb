@@ -6,7 +6,7 @@
       <li><%= link_to 'Home', root_path %></li>
       <li><%= mail_to "philip@pjkh.com", "Feedback", :encode => "javascript" %></li>
       <li><%= link_out_to "Code for this site", "http://github.com/phallstrom/fonr/tree/master" %></li>
-      <li><%= link_to "Debug Splat", debug_splat_path %></li>
+      <li><%= link_to "Debug Splat", debug_splat_path, :class => 'new' %></li>
     </ul>
   </li>
   </li>
@@ -16,12 +16,13 @@
   <li>
     <h3>Connect</h3>
     <ul class="links">
+      <li><%= link_to "Detecting Connect Status", detecting_connect_status_path, :class => 'new' %></li>
       <li><%= link_to "Inviting Friends", invite_friends_path %></li>
       <li><%= link_to "Publish User Actions", publish_user_actions_path %></li>
       <li>FB.Init Options
           <ul>
-            <li><%= link_to "js", fb_init_options_path(:js) %></li>
-            <li><%= link_to "app_settings", fb_init_options_path(:app_settings) %></li>
+            <li><%= link_to "js", fb_init_options_path(:js), :class => 'new' %></li>
+            <li><%= link_to "app_settings", fb_init_options_path(:app_settings), :class => 'new' %></li>
           </ul>
       </li>
     </ul>
