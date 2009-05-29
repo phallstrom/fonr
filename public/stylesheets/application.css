@@ -175,6 +175,7 @@ small, .small {
 
 /*******************************************************************************************/
 
+#header div.phallstrom_only,
 #header div.not_in_fb {
   margin-top: 1em;
   font-size: 85%;

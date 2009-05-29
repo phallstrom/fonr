@@ -1,2 +1,61 @@
-<h1>FbInitOptions#app_settings</h1>
-<p>Find me in app/views/fb_init_options/app_settings.html.erb</p>
+<% content_for :header do %>
+  <h1>init_fb_connect(..., :app_settings => "{a: 'valid', json: 'string'}")</h1>
+  init_fb_connect can accept an :app_settings option to integrate come call backs triggered by the user's connected state.
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/JS_API_M_FB.Facebook.Init_2' %>)
+  <div class='phallstrom_only'>
+    This feature is only available in phallstrom's branch of facebooker. - Fri May 29 11:21:10 PDT 2009
+  </div>
+<% end %>
+
+<h3>reloadIfSessionStateChanged</h3>
+If reloadIfSessionStateChanged is set to true (default is false) Facebook will
+monitor changes in session state and reload current page if session state
+changes. This option is convenient for application that needs to reload page
+whenever session state change in order to generate different content from
+server side. 
+<br />
+<br />
+Examples:
+<pre class='boxed'>
+:app_settings => "{reloadIfSessionStateChanged: true}"
+</pre>
+
+<h3>ifUserConnected / ifUserNotConnected</h3>
+These parameters can be either a function that takes a string argument for uid
+or string to a url. If a function is passed, then the function would be
+invoked. If a string is passed, then the browser will be redirected to the url
+specified in the string. Note these key and reloadIfSessionStateChanged cannot
+be specified at the same time.
+<br />
+<br />
+
+It is my experience that the ifUserConnected callback is called
+*twice* if the page utilizes Facebook Comments.  I have no documentation of
+this other than testing this very site with a simple javascript call back that
+pops an alert.  If connected, a popup appears on page load, then shortly
+therafter another popup appears.  Removing the Facebook comment widget at the
+bottom of the page results in only a single callback being made.  I assume the
+same would happen if a URL is provided.  Keep this in mind when developing the
+call back.
+
+<br />
+<br />
+
+The documentation seems to suggest that these callbacks are
+triggered on connect status changes.  That doesn't seem to be the case.  They
+are called every time the page loads.  Also, if I am connected to this site,
+then logout of Facebook in another tab, nothing happens on this original page.
+I must reload the page for it to notice the change.  
+
+<br />
+<br />
+
+Examples:
+<pre class='boxed'>
+:app_settings => "{ifUserConnected: javascript_function_connected, ifUserNotConnected: javascript_function_not_connected}"
+:app_settings => "{ifUserConnected: '/connected/url', ifUserNotConnected: '/notconnected/url'}"
+</pre>
+
+<h3>More Options</h3>
+Please see the <%= link_out_to 'Facebook Wiki', 'http://wiki.developers.facebook.com/index.php/JS_API_M_FB.Facebook.Init_2' %> page for other options.
+  
