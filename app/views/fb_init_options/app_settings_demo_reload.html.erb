@@ -1,0 +1,31 @@
+<% @app_settings = "{reloadIfSessionStateChanged: true}" %>
+
+<% content_for :header do %>
+  <h1>init_fb_connect(..., :app_settings => "{reloadIfSessionStateChanged: true}")</h1>
+  A demo for testing out reloadIfSessionStateChanged
+  (<%= link_out_to 'FB Wiki', 'http://wiki.developers.facebook.com/index.php/JS_API_M_FB.Facebook.Init_2' %>)
+  <div class='phallstrom_only'>
+    This feature is only available in phallstrom's branch of facebooker. - Fri May 29 11:21:10 PDT 2009
+  </div>
+<% end %>
+
+
+<ol>
+  <li>This demo is fairly straight foward.  Logging in and logging out will simply
+      reload this page.  Watch your browsers status indicators to see that this is
+      really happening.
+  </li>
+
+  <li>You can login/logout at the top right of the page.  
+      For this site logging in/out is done via an AJAX request so the page itself normally doesn't reload.
+      You can confirm this by logging in/out on another page such as the <%= link_to 'home page', root_path %>.
+  </li>
+  
+  <li>Just for kicks, or if your browser is too fast to see the change,
+      you can <%= link_to_function 'click here', "$('some_content').show()" %>
+      and we'll add some content with Javascript which after you login/out
+      won't be there anymore.
+      <div id='some_content' class='boxed' style='margin-top: 1em; display: none'>Here is some dynamically displayed Javascript content. Now go login/out to see the change!</div>
+  </li>
+  
+</ol>

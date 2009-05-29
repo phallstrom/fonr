@@ -10,8 +10,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :facebook_session
   
+  before_filter :set_assumptions
   before_filter :create_facebook_session
   before_filter :set_current_user
+
+  def set_assumptions
+    @app_settings = '{}'
+  end
+  private :set_assumptions
 
   def set_current_user
     if facebook_session && facebook_session.secured?
