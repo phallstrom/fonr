@@ -6,8 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.helper '/helpers/:id', :controller => 'helper', :action => 'helper'
   map.user_method '/user/:action', :controller => 'user'
 
-  map.with_options :controller => 'tutorials' do |r|
-  end
+  map.debug_splat '/debug-splat', :controller => 'home', :action => 'debug_splat'
+
 
 
   map.with_options :controller => 'connect' do |r|

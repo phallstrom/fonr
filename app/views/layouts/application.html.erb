@@ -20,11 +20,24 @@
     </style>
 
     <%= yield :head %>
+
+    <% javascript_tag do %>
+      function onConnected(uid) {
+        alert("connected:" + uid)
+      }
+
+      function onNotConnected(uid) {
+        alert("not connected:" + uid)
+      }
+    <% end %>
+
   </head>
   <body>
 
     <%= fb_connect_javascript_tag %>
-    <% init_fb_connect "XFBML","Api" do %>
+    <%# init_fb_connect("XFBML","Api", :app_settings => "{ifUserConnected: onConnected, ifUserNotConnected: onNotConnected}") do %>
+    <%# init_fb_connect("XFBML","Api", :app_settings => "{reloadIfSessionStateChanged: true}") do %>
+    <% init_fb_connect("XFBML","Api") do %>
       <%= yield :fb_connect %>
       <%= fb_user_action(@user_action_to_publish) if @user_action_to_publish %>
     <% end %>
