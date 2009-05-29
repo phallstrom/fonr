@@ -1,5 +1,7 @@
 module ::ActionController
-  class AbstractRequest
+
+  class Request
+
     include Facebooker::Rails::BackwardsCompatibleParamChecks
 
     def request_method_with_facebooker
@@ -11,7 +13,7 @@ module ::ActionController
       request_method_without_facebooker
     end
 
-    if new.methods.include?("request_method")
+    if new({}).methods.include?("request_method")
       alias_method_chain :request_method, :facebooker
     end
 
@@ -21,10 +23,9 @@ module ::ActionController
       xml_http_request_without_facebooker?
     end
     alias_method_chain :xml_http_request?, :facebooker
+
     # we have to re-alias xhr? since it was pointing to the old method
-    unless defined? :xhr?
-      alias xhr? :xml_http_request?
-    end
+    alias xhr? :xml_http_request?
 
   end
 end

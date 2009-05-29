@@ -1,8 +1,7 @@
-require File.dirname(__FILE__) + '/../test_helper.rb'
+require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 require 'rack/facebook'
 require 'rack/lint'
 require 'rack/mock'
-require 'ruby-debug'
 
 class Rack::FacebookTest < Test::Unit::TestCase
   
