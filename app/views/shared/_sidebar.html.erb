@@ -18,6 +18,12 @@
     <ul class="links">
       <li><%= link_to "Inviting Friends", invite_friends_path %></li>
       <li><%= link_to "Publish User Actions", publish_user_actions_path %></li>
+      <li>FB.Init Options
+          <ul>
+            <li><%= link_to "js", fb_init_options_path(:js) %></li>
+            <li><%= link_to "app_settings", fb_init_options_path(:app_settings) %></li>
+          </ul>
+      </li>
     </ul>
   </li>
   

@@ -1,0 +1,16 @@
+<% content_for :header do %>
+  <h1>init_fb_connect(..., :js => ???)</h1>
+  init_fb_connect can accept a :js option to specify what "dom ready" wrapper to use.
+<% end %>
+
+<h3>:js => :prototype (the default)</h3>
+<% @invocation = "<.%= init_fb_connect('XFBML', 'Api', :js => :prototype) %.>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+<%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :output => :code} %>
+
+<h3>:js => :jquery</h3>
+<% @invocation = "<.%= init_fb_connect('XFBML', 'Api', :js => :jquery) %.>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+<%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :output => :code} %>
+
+<h3>:js => :dojo</h3>
+<% @invocation = "<.%= init_fb_connect('XFBML', 'Api', :js => :dojo) %.>".gsub(/<.%/, '<' + '%').gsub(/%.>/, '%' + '>') %>
+<%= render :partial => 'shared/invocation_and_result', :locals => {:pre => true, :output => :code} %>
