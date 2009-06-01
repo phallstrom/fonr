@@ -2,7 +2,4 @@
 
 <hr/>
 
-<% @current_user.facebook_session.user.friends!(:name).each do |friend| %>
-  <%= friend.uid %>
-  <hr />
-<% end %>
+<%= h fb_cookie_prefix.inspect %>
